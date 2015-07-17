@@ -6,6 +6,7 @@
 		<p>
 			<%= link_to story.title, story_path(story.id) %>
 			<%= link_to "edit!", edit_story_path(story.id) %>
+			<%= link_to "delete!", story_path(story.id), method: :delete, data: {confirm: "you sure?"} %>
 		</p>
 	<% end %>
 </div>

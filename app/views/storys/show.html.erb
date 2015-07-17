@@ -12,6 +12,11 @@
 	<h3>story's url</h3>
 	<%= @story.url %>
 
+
+	<br/>
+	<%= link_to "edit!", edit_story_path(@story.id) %>
+	<%= link_to "delete!", story_path(@story.id), method: :delete, data: {confirm: "you sure?"} %>
+
 	<h3>characters</h3>
 	<% @persons.each do |person| %>
 		<h4>character_name：<%= person.p_name %></h4>
