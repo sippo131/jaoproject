@@ -5,6 +5,10 @@
 	<% @storys.each do |story| %>
 		<p>
 			<%= link_to story.title, story_path(story.id) %>
+			<%= link_to "edit!", edit_story_path(story.id) %>
 		</p>
 	<% end %>
+</div>
+
+	<%= link_to "Create new Story!", new_story_path %>
 </div>
