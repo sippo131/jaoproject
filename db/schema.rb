@@ -14,7 +14,8 @@
 ActiveRecord::Schema.define(version: 20150717024855) do
 
   create_table "people", force: :cascade do |t|
-    t.string   "pname"
+    t.integer  "story_id"
+    t.string   "p_name"
     t.text     "character"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

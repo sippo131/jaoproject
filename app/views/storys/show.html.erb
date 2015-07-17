@@ -11,9 +11,11 @@
 <h3>story's url</h3>
 <%= @story.url %>
 
+<h3>characters</h3>
 <% @persons.each do |person| %>
-<p>
-	<%= person.pname %>
-	<%= person.character %>
-</p>
+<h4>
+	おなまえ：<%= person.p_name %>
+	<br/>
+	とくちょう：<%= person.character %>
+</h4>
 <% end %>
