@@ -1,0 +1,19 @@
+<br/>
+<br/>
+
+<h1>the page of show</h1>
+<h3>story's title</h3>
+<%= @story.title %>
+<h3>story's summary</h3>
+<%= @story.summary %>
+<h3>story's author</h3>
+<%= @story.author %>
+<h3>story's url</h3>
+<%= @story.url %>
+
+<% @persons.each do |person| %>
+<p>
+	<%= person.pname %>
+	<%= person.character %>
+</p>
+<% end %>

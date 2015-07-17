@@ -1,4 +1,10 @@
-<h1>一番上のページですお。</h1>
-<h1>うまくいってよかったお</h1>
+<br/>
+<br/>
 
-<button class="btn btn-large">うんこぶり！</button>
+<h1>一番上のページですお。</h1>
+
+<% @storys.each do |story| %>
+	<p>
+		<%= story.title %>
+	</p>
+<% end %>

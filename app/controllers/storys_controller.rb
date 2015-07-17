@@ -1,5 +1,11 @@
 class StorysController < ApplicationController
 	def index
-	  #code
+		@storys = Story.all
 	end
+
+	def show
+	  @story = Story.find(params[:id])
+		@persons = @story.person.all
+	end
+
 end
