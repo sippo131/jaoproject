@@ -1,21 +1,21 @@
 <br/>
 <br/>
 
-<h1>the page of show</h1>
-<h3>story's title</h3>
-<%= @story.title %>
-<h3>story's summary</h3>
-<%= @story.summary %>
-<h3>story's author</h3>
-<%= @story.author %>
-<h3>story's url</h3>
-<%= @story.url %>
+<div class="content_show">
+	<h1>the page of show</h1>
+	<h3>story's title</h3>
+	<%= @story.title %>
+	<h3>story's summary</h3>
+	<%= @story.summary %>
+	<h3>story's author</h3>
+	<%= @story.author %>
+	<h3>story's url</h3>
+	<%= @story.url %>
 
-<h3>characters</h3>
-<% @persons.each do |person| %>
-<h4>
-	おなまえ：<%= person.p_name %>
-	<br/>
-	とくちょう：<%= person.character %>
-</h4>
-<% end %>
+	<h3>characters</h3>
+	<% @persons.each do |person| %>
+		<h4>character_name：<%= person.p_name %></h4>
+		character_personality：<%= person.character %>
+	<% end %>
+
+</div>

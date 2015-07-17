@@ -1,10 +1,10 @@
-<br/>
-<br/>
+<div class="content_show">
+	<h1>This is the top page</h1>
 
-<h1>一番上のページですお。</h1>
-
-<% @storys.each do |story| %>
-	<p>
-		<%= story.title %>
-	</p>
-<% end %>
+	<h4>the list of storys↓</h4>
+	<% @storys.each do |story| %>
+		<p>
+			<%= link_to story.title, story_path(story.id) %>
+		</p>
+	<% end %>
+</div>
