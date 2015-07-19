@@ -31,7 +31,7 @@
 	  <div class="span6 offset3">
 	    <%= form_for(@person) do |f| %>
 				<%= f.label :story_id%>
-				<%= f.text_field :story_id %>
+				<%= f.text_field :story_id, readonly: true %>
 
 	      <%= f.label :p_name %>
 	      <%= f.text_field :p_name, placeholder: "nagao norihiro" %>
