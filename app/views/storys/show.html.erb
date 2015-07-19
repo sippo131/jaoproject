@@ -14,15 +14,15 @@
 
 
 	<br/>
-	<%= link_to "edit!", edit_story_path(@story.id) %>
-	<%= link_to "delete!", story_path(@story.id), method: :delete, data: {confirm: "you sure?"} %>
+	<%= link_to "edit!", edit_story_path(@story.id), class: "btn btn-warning" %>
+	<%= link_to "delete!", story_path(@story.id), method: :delete, data: {confirm: "you sure?"}, class: "btn btn-danger" %>
 
 	<h3>characters</h3>
 	<% @persons.each do |person| %>
 		<h4>character_name：<%= person.p_name %></h4>
 		character_personality：<%= person.character %>
-		<%= link_to "edit!", edit_person_path(person.id) %>
-		<%= link_to "delete!", person_path(person.id), method: :delete, data: {confirm: "you sure?"} %>
+		<%= link_to "edit!", edit_person_path(person.id), class: "btn btn-warning" %>
+		<%= link_to "delete!", person_path(person.id), method: :delete, data: {confirm: "you sure?"}, class: "btn btn-danger" %>
 	<% end %>
 
 	<!--以下新しいperson作成フォーム-->
@@ -34,10 +34,10 @@
 				<%= f.text_field :story_id %>
 
 	      <%= f.label :p_name %>
-	      <%= f.text_field :p_name %>
+	      <%= f.text_field :p_name, placeholder: "nagao norihiro" %>
 
 	      <%= f.label :character %>
-	      <%= f.text_field :character %>
+	      <%= f.text_field :character, placeholder: "strong" %>
 
 	      <%= f.submit "Create new person!", class: "btn btn-large btn-primary" %>
 	    <% end %>

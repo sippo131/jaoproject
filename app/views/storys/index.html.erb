@@ -1,15 +1,17 @@
-<div class="content_show">
-	<h1>This is the top page</h1>
 
-	<h4>the list of storys↓</h4>
-	<% @storys.each do |story| %>
+
+
+<div class="text-center">
+	<h2>the list of storys</h2>
+		<% @storys.each do |story| %>
 		<p>
-			<%= link_to story.title, story_path(story.id) %>
-			<%= link_to "edit!", edit_story_path(story.id) %>
-			<%= link_to "delete!", story_path(story.id), method: :delete, data: {confirm: "you sure?"} %>
+			<%= link_to story.title, story_path(story.id) %><br>
+		  author: <%= story.author %><br>
+			summary: <%= story.summary %><br>
+			<%= link_to "edit!", edit_story_path(story.id),class: "btn btn-warning" %>
+			<%= link_to "delete!", story_path(story.id), method: :delete, data: {confirm: "you sure?"}, class: "btn btn-danger" %>
 		</p>
-	<% end %>
+		<% end %>
 </div>
 
-	<%= link_to "Create new Story!", new_story_path %>
 </div>
