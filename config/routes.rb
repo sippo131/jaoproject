@@ -5,12 +5,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'storys#index'
    resources :storys
+   resources :persons
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # 以下のrootingはstoriesの複数形による問題を解消するため。
   get 'stories' => 'storys#show'
   post 'stories' => 'storys#create'
+
+  # 以下のrootingはpeopleの複数形による問題を解消するため。
+  # というよりそもそもきちんと正しい複数形を使ったほうがよいのではなかろうかと思い始めまする。
+  get 'people' => 'persons#show'
+  post 'people' => 'persons#create'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

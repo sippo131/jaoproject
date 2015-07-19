@@ -1,0 +1,17 @@
+<h3>Edit current person!</h3>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@person) do |f| %>
+			<%= f.label :story_id%>
+			<%= f.text_field :story_id %>
+
+			<%= f.label :p_name %>
+			<%= f.text_field :p_name %>
+
+			<%= f.label :character %>
+			<%= f.text_field :character %>
+
+			<%= f.submit "Edit current person!", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>
