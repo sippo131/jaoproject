@@ -1,4 +1,11 @@
 class StorysController < ApplicationController
+	def home
+		@foo = [
+	    {author: "Pete Hunt", text: "This is one comment"},
+	    {author: "Jordan Walke", text: "This is *another* comment"}
+	  ]
+	end
+
 	def new
 		@story = Story.new
 	end

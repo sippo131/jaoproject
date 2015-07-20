@@ -5,3 +5,8 @@
 		<%= link_to "Create new Story!", new_story_path , class: "btn btn-lg btn-primary" %>
 	</div>
 </div>
+
+
+<%= react_component('CommentBox',
+  data: @foo
+) %>
