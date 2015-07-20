@@ -11,6 +11,12 @@ var CommentBox = React.createClass({
     setInterval(this.loadCommentsFromServer, this.props.pollInterval);
    },
    handleCommentSubmit:function(comment){
+     $.ajax({
+     url: this.props.url,
+     dataType: 'json',
+     type: 'POST',
+     data: comment
+   });
     // I succeeded in change the state.
     // so what i should do next is push the data to the server side.
     this.setState({data: this.state.data.concat(comment)});

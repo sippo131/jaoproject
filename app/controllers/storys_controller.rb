@@ -1,9 +1,6 @@
 class StorysController < ApplicationController
 	def home
-		@foo = [
-	    {author: "Pete Hunt", text: "This is one comment"},
-	    {author: "Jordan Walke", text: "This is *OMANKO* comment"}
-	  ]
+		@storys = Story.all
 	end
 
 	def new
@@ -35,7 +32,7 @@ class StorysController < ApplicationController
 
 	def destroy
 		Story.find(params[:id]).destroy
-		redirect_to root_path
+		redirect_to storys_path
 	end
 
 
