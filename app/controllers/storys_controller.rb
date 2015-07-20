@@ -2,7 +2,7 @@ class StorysController < ApplicationController
 	def home
 		@foo = [
 	    {author: "Pete Hunt", text: "This is one comment"},
-	    {author: "Jordan Walke", text: "This is *another* comment"}
+	    {author: "Jordan Walke", text: "This is *OMANKO* comment"}
 	  ]
 	end
 
