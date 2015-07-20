@@ -1,20 +1,29 @@
-<h1>Making new story!</h1>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="text-center">
+    <h1>Making new story!</h1>
+      </br>
+      </br>
+
     <%= form_for(@story) do |f| %>
 
       <%= f.label :title %>
+      </br>
       <%= f.text_field :title %>
-
+      </br>
       <%= f.label :author %>
+      </br>
       <%= f.text_field :author %>
-
+      </br>
       <%= f.label :summary %>
+      </br>
       <%= f.text_field :summary %>
-
+      </br>
       <%= f.label :url %>
+      </br>
       <%= f.text_field :url %>
+      </br>
+      </br>
 
       <%= f.submit "Create new story!", class: "btn btn-large btn-primary" %>
     <% end %>

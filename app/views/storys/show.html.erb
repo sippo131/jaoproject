@@ -1,32 +1,33 @@
 <br/>
 <br/>
 
-<div class="content_show">
-	<h1>the page of show</h1>
-	<h3>story's title</h3>
-	<%= @story.title %>
-	<h3>story's summary</h3>
-	<%= @story.summary %>
-	<h3>story's author</h3>
-	<%= @story.author %>
-	<h3>story's url</h3>
-	<%= @story.url %>
+<center>
+	<div class="content_show">
+		<h1>Information about [<%= @story.title %>]</h1>
+		<%= link_to "edit!", edit_story_path(@story.id), class: "btn btn-warning" %>
+		<%= link_to "delete!", story_path(@story.id), method: :delete, data: {confirm: "you sure?"}, class: "btn btn-danger" %>
+		<h3>Title:   <%= @story.title %></h3>
+		<h3>Summary:   <%= @story.summary %></h3>
+		<h3>Author:   <%= @story.author %></h3>
+		<h3>Url:   <%= @story.url %></h3>
+		<br/>
 
+		</div>
+</center>
 
-	<br/>
-	<%= link_to "edit!", edit_story_path(@story.id), class: "btn btn-warning" %>
-	<%= link_to "delete!", story_path(@story.id), method: :delete, data: {confirm: "you sure?"}, class: "btn btn-danger" %>
-
-	<h3>characters</h3>
+<center>
+	<h3>Characters</h3>
 	<% @persons.each do |person| %>
 		<h4>character_name：<%= person.p_name %></h4>
 		character_personality：<%= person.character %>
 		<%= link_to "edit!", edit_person_path(person.id), class: "btn btn-warning" %>
 		<%= link_to "delete!", person_path(person.id), method: :delete, data: {confirm: "you sure?"}, class: "btn btn-danger" %>
 	<% end %>
+</center>
 
 	<!--以下新しいperson作成フォーム-->
-	<h3>Make new person!</h3>
+<center>
+	<h3>Make new character!</h3>
 	<div class="row">
 	  <div class="span6 offset3">
 	    <%= form_for(@person) do |f| %>
@@ -43,6 +44,4 @@
 	    <% end %>
 	  </div>
 	</div>
-
-
-</div>
+</center>
