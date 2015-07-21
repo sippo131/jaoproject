@@ -74,7 +74,7 @@ var PersonList = React.createClass({
 var PersonPart = React.createClass({
   handleButtonClick: function(){
     var id = this.props.personID
-    this.props.onPersonButtonClick(id)
+    this.props.onPersonButtonClick({id: id});
   },
   render: function(){
     return(
