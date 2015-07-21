@@ -13,7 +13,7 @@
 		</div>
 </center>
 
-<%= react_component('Person',data: @persons, pollInterval: 200,url: persons_path,storyID: @story_id) %>
+<%= react_component('Person',data: @persons, pollInterval: 200,create_url: persons_path,destroy_url: person_path,storyID: @story_id) %>
 
 <!--
 <center>

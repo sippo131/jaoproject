@@ -7,9 +7,9 @@ class PersonsController < ApplicationController
 		@person = Person.new(person_params)
 		@story = Story.find_by(id: @person.story_id)
 		if @person.save
-			redirect_to storys_path
+			redirect_to @story
 		else
-			redirect_to storys_path
+			redirect_to @story
 		end
 	end
 
