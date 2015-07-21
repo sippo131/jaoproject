@@ -14,6 +14,7 @@ class StorysController < ApplicationController
 	def show
 	  @story = Story.find(params[:id])
 		@person = Person.new(story_id: @story.id)
+		@story_id = @story.id
 		@persons = @story.person.all
 	end
 

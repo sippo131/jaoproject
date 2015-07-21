@@ -1,5 +1,3 @@
-<%= react_component('Person',data: @persons, pollInterval: 2000) %>
-
 
 
 <center>
@@ -12,10 +10,12 @@
 		<h3>Author:   <%= @story.author %></h3>
 		<h3>Url:   <%= @story.url %></h3>
 		<br/>
-
 		</div>
 </center>
 
+<%= react_component('Person',data: @persons, pollInterval: 200,url: persons_path,storyID: @story_id) %>
+
+<!--
 <center>
 	<h3>Characters</h3>
 	<% @persons.each do |person| %>
@@ -26,7 +26,7 @@
 	<% end %>
 </center>
 
-	<!--以下新しいperson作成フォーム-->
+以下新しいのをつくるフォーム
 <center>
 	<h3>Make new character!</h3>
 	<div class="row">
@@ -45,4 +45,4 @@
 	    <% end %>
 	  </div>
 	</div>
-</center>
+</center> -->
