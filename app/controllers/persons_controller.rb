@@ -29,7 +29,7 @@ class PersonsController < ApplicationController
 		@person = Person.find(params[:id])
 		@story = Story.find_by(id: @person.story_id)
 		@person.destroy
-		redirect_to @story
+		redirect_to root_path
 	end
 
 	private
