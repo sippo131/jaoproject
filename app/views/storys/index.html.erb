@@ -1,17 +1,2 @@
 
-
-
-<div class="text-center">
-	<h2>the list of storys</h2>
-		<% @storys.each do |story| %>
-		<p>
-			<%= link_to story.title, story_path(story.id) %><br>
-		  author: <%= story.author %><br>
-			summary: <%= story.summary %><br>
-			<%= link_to "edit!", edit_story_path(story.id),class: "btn btn-warning" %>
-			<%= link_to "delete!", story_path(story.id), method: :delete, data: {confirm: "you sure?"}, class: "btn btn-danger" %>
-		</p>
-		<% end %>
-</div>
-
-</div>
+<%= react_component('Story',data: @storys,pollInterval: 1000, url: stories_path) %>

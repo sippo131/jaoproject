@@ -1,19 +1,19 @@
 
 var Story = React.createClass({
-  loadCommentsFromServer: function(){
+  loadStoriesFromServer: function(){
     this.setState({data: this.props.data});
   },
   getInitialState: function(){
     return {data: []};
   },
   componentDidMount: function() {
-    this.loadCommentsFromServer();
-    // setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+    this.loadStoriesFromServer();
+    // setInterval(this.loadStorieFromServer, this.props.pollInterval);
     // 上のコードは定期的にサーバーサイドと同期をするコード。
     // ただRails側の@storyはそのページを更新しないかぎり変化しない。
     // というわけで、今回は挫折。たぶんrailsAPIの作成だといける気がする。
    },
-   handleCommentSubmit:function(story){
+   handleStorySubmit:function(story){
     // submit storydatas to server side.
     var storyDataToRails = {story: story}
     $.ajax({
@@ -27,40 +27,49 @@ var Story = React.createClass({
    },
   render: function() {
     return (
-      <div className="commentBox">
-        <h1>Post New Stories!</h1>
-        <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
-        <h1>Stories</h1>
-        <CommentList data={this.state.data}/>
+      <div className="storyBox">
+        <h1>Create New Stories!</h1>
+        <StoryForm onStorySubmit={this.handleStorySubmit}/>
+        <h1 className="text-center">Current Stories</h1>
+        <StoryList data={this.state.data}/>
       </div>
     );
   }
 });
 
-var CommentList = React.createClass({
+var StoryList = React.createClass({
   render: function() {
-    var commentNodes = this.props.data.map(function (story) {
+    var storyNodes = this.props.data.map(function (story) {
+      var e_path = "/storys/" + story.id + "/edit";
+      var d_path = "/storys/" + story.id ;
       return (
-        <Comment author={story.author} title={story.title} url={story.url}>
-          {story.summary}
-        </Comment>
+        <div className="storyPart text-center">
+          <StorySegment author={story.author} title={story.title} url={story.url} id={story.id}>
+            {story.summary}
+          </StorySegment>
+          <a className="btn btn-warning" href={e_path}>edit!</a>
+          <a className="btn btn-danger" rel="nofollow" data-confirm="you sure?" data-method="delete" href={d_path}>delete!</a>
+          <p>-------------------------------------------------</p>
+        </div>
       );
     });
     return (
-      <div className="commentList">
-        {commentNodes}
+      <div className="storyList">
+        {storyNodes}
       </div>
     );
   }
 });
 
-var Comment = React.createClass({
+var StorySegment = React.createClass({
   render: function() {
     var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    var thisTitleName = this.props.title;
+    var thisUrlPath = "/storys/" + this.props.id + "/";
     return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.title}
+      <div className="story">
+        <h2 className="storyTitle">
+          <a href={thisUrlPath} className="btn btn-primary btn-lg">{thisTitleName}</a>
         </h2>
         author: {this.props.author}
         <br></br>
@@ -73,7 +82,7 @@ var Comment = React.createClass({
 });
 
 
-var CommentForm = React.createClass({
+var StoryForm = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
     var title = React.findDOMNode(this.refs.title).value.trim();
@@ -83,7 +92,7 @@ var CommentForm = React.createClass({
     if (!summary || !author || !title || !url){
       return;
     }
-    this.props.onCommentSubmit({author: author, summary: summary, title: title, url: url});
+    this.props.onStorySubmit({author: author, summary: summary, title: title, url: url});
 
     React.findDOMNode(this.refs.author).value = "";
     React.findDOMNode(this.refs.title).value = "";
@@ -93,7 +102,7 @@ var CommentForm = React.createClass({
   },
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
+      <form className="storyForm" onSubmit={this.handleSubmit}>
         <input type="text" placeholder="Story's title" ref="title" />
         <input type="text" placeholder="Story's summary" ref="summary" />
         <input type="text" placeholder="Story's author" ref="author" />
